@@ -1,14 +1,14 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("user-input");
 var ul = document.querySelector("ul");
-var introMessage = document.getElementById("1li");
+var introMessage = document.getElementById("introMessage");
 
 function inputLength() {
    return input.value.length;
 }
 
 function removeIntroMessage() {
-    var removeLi = document.removeChild(introMessage);
+    introMessage.remove();
 }
 
 function createListElement() {
@@ -24,7 +24,7 @@ function addListAfterClick() {
     }
 }
 
-function addListAfterKeypress (event) {
+function addListAfterKeypress(event) {
         if (inputLength() > 0 && event.keyCode === 13) {
             createListElement();
     }
@@ -32,3 +32,4 @@ function addListAfterKeypress (event) {
 
 button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
+input.addEventListener("keypress", removeIntroMessage);
